@@ -1,0 +1,116 @@
+@use "../abstracts" as *;
+
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  margin-top: 2rem;
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(0deg, rgb($v-d-blue, 0.7), transparent);
+    opacity: 0;
+    visibility: hidden;
+    @include trans;
+  }
+  &:has(.nav__links.active)::before {
+    opacity: 1;
+    visibility: visible;
+  }
+  .container {
+    @include flex(space-between, center, null);
+    gap: 2rem;
+    position: relative;
+  }
+  .#{&}__logo {
+    width: 110px;
+    @include media($md) {
+      display: grid;
+      width: auto;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  nav {
+    @include media($md) {
+      flex: 1;
+    }
+  }
+  .nav__icon {
+    display: grid;
+    gap: 4px;
+    width: 30px;
+    @include media($md) {
+      display: none;
+    }
+    span {
+      width: 100%;
+      height: 4px;
+      background-color: $d-blue;
+      @include trans;
+    }
+    &.active {
+      span {
+        &:first-child {
+          transform: translate(0px, 10px) rotate(-40deg);
+        }
+        &:nth-of-type(2) {
+          background: transparent;
+        }
+        &:last-child {
+          transform: translate(0px, -6px) rotate(40deg);
+        }
+      }
+    }
+  }
+  .nav__links {
+    position: absolute;
+    top: calc(100% + 40px);
+    left: 25px;
+    z-index: 1;
+    background: $white;
+    width: calc(100% - 50px);
+    padding-block: 1.5rem;
+    text-align: center;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    @include trans;
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    @include media($md) {
+      display: flex;
+      justify-content: space-between;
+      position: static;
+      width: 100%;
+      max-width: 500px;
+      margin: auto;
+      padding-block: 0;
+      background-color: transparent;
+      opacity: 1;
+      visibility: visible;
+    }
+    a {
+      display: block;
+      color: $d-blue;
+      font-weight: 700;
+      padding: 1rem;
+      @include trans;
+      &:hover {
+        color: $d-grayish-blue;
+      }
+      @include media($md) {
+        padding: 0;
+      }
+    }
+  }
+}

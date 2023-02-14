@@ -1,0 +1,34 @@
+@use "../abstracts" as *;
+
+.primary__btn {
+  background-color: $b-Red;
+  color: $v-l-gray;
+  font-weight: 700;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  @include trans;
+  &:hover {
+    background-color: lighten($b-Red, 10%);
+  }
+}
+%shadow {
+  place-items: center;
+  position: relative;
+  margin: auto;
+  box-shadow: 0 8px 10px 0 rgb($b-Red, 0.5);
+}
+.header__btn {
+  display: none;
+  @extend %shadow;
+  @include media($lg) {
+    display: grid;
+  }
+}
+
+.intro__btn {
+  display: grid;
+  @extend %shadow;
+  @include media($md) {
+    margin: 0;
+  }
+}

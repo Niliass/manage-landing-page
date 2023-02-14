@@ -1,0 +1,36 @@
+@use "../abstracts" as *;
+
+.intro {
+  position: relative;
+  padding: 10rem 0 0 0;
+  overflow: hidden;
+  &__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    transform: translate(20%, -20%) scale(1.5);
+    width: clamp(300px, 38vw, 1000px);
+    img {
+      width: 100%;
+    }
+  }
+  .container {
+    @include flex(center, center, column);
+    gap: 1.5rem;
+    max-width: 500px;
+    @include media($md) {
+      max-width: unset;
+    }
+    @include media($md) {
+      justify-content: space-between;
+      flex-direction: row-reverse;
+    }
+  }
+  &__img {
+    width: 100%;
+    @include media($md) {
+      width: 50%;
+    }
+  }
+}
