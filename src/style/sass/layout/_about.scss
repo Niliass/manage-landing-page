@@ -2,7 +2,11 @@
 
 .about {
   overflow: hidden;
-  margin-bottom: 5rem;
+  padding-bottom: 3rem;
+  position: relative;
+  @include media($md) {
+    overflow: unset;
+  }
   .container {
     @include media($md) {
       flex-direction: row;
@@ -18,5 +22,8 @@
     @include media($lg) {
       max-width: 40%;
     }
+  }
+  &__bg {
+    position: absolute;
   }
 }

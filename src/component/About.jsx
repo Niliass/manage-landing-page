@@ -27,6 +27,12 @@ const About = () => {
               );
             })}
         </div>
+        {/* <div className="about__bg">
+          <img
+            src="./images/bg-tablet-pattern.svg"
+            className="about__bg--desk"
+          />
+        </div> */}
       </div>
     </div>
   );

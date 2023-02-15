@@ -28,7 +28,8 @@ h6 {
   font-weight: 700;
 }
 
-p {
+p,
+q {
   color: hsl(227deg, 12%, 61%);
   line-height: 1.8;
 }
@@ -160,7 +161,7 @@ body {
   background-color: #f6866a;
 }
 
-.intro__btn, .header__btn {
+.testimonial__btn, .intro__btn, .header__btn {
   place-items: center;
   position: relative;
   margin: auto;
@@ -205,6 +206,12 @@ body {
 
 .footer__btn {
   text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .testimonial__btn {
+    margin-block: 4rem 5rem;
+  }
 }
 
 .container-max-width {
@@ -412,7 +419,13 @@ header .nav__links a:hover {
 
 .about {
   overflow: hidden;
-  margin-bottom: 5rem;
+  padding-bottom: 3rem;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .about {
+    overflow: unset;
+  }
 }
 @media (min-width: 768px) {
   .about .container {
@@ -433,6 +446,74 @@ header .nav__links a:hover {
   .about .about__content {
     max-width: 40%;
   }
+}
+.about__bg {
+  position: absolute;
+}
+
+.testimonial {
+  display: grid;
+  margin-bottom: 4rem;
+}
+.testimonial__title {
+  font-size: 1.8rem;
+  text-align: center;
+}
+.testimonial__content {
+  overflow: hidden;
+  padding-top: 5rem;
+}
+@media (min-width: 768px) {
+  .testimonial__content {
+    padding-top: 7rem;
+  }
+}
+.testimonial .box {
+  display: grid;
+  place-items: center;
+  position: relative;
+  gap: 1rem;
+  width: calc(100% - 40px);
+  max-width: 500px;
+  text-align: center;
+  margin: auto;
+  background-color: hsl(0deg, 0%, 98%);
+}
+.testimonial .box__img {
+  position: absolute;
+  top: 0;
+  width: 70px;
+  transform: translateY(-50%);
+}
+.testimonial .box__title {
+  font-size: 0.95rem;
+  margin-top: 3.5rem;
+}
+.testimonial .box__quote {
+  font-size: 0.9rem;
+  padding: 1rem 1rem 2rem;
+}
+.testimonial .three__dots {
+  display: flex;
+  justify-content: space-between;
+  width: 60px;
+  margin: 2rem auto 3rem;
+}
+@media (min-width: 768px) {
+  .testimonial .three__dots {
+    display: none;
+  }
+}
+.testimonial .three__dots .circle {
+  width: 10px;
+  height: 10px;
+  border: 1px solid hsl(12deg, 88%, 59%);
+  cursor: pointer;
+  transition: 0.25s;
+  border-radius: 50%;
+}
+.testimonial .three__dots .circle:hover {
+  background-color: hsl(12deg, 88%, 59%);
 }
 
 .simplify {

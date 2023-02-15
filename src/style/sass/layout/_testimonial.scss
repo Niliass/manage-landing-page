@@ -1,0 +1,62 @@
+@use "../abstracts" as *;
+
+.testimonial {
+  display: grid;
+  margin-bottom: 4rem;
+  &__title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  &__content {
+    overflow: hidden;
+    padding-top: 5rem;
+    @include media($md) {
+      padding-top: 7rem;
+    }
+  }
+  .box {
+    display: grid;
+    place-items: center;
+    position: relative;
+    gap: 1rem;
+    width: calc(100% - 40px);
+    max-width: 500px;
+    text-align: center;
+    margin: auto;
+    background-color: $v-l-gray;
+    &__img {
+      position: absolute;
+      top: 0;
+      width: 70px;
+      transform: translateY(-50%);
+    }
+    &__title {
+      font-size: 0.95rem;
+      margin-top: 3.5rem;
+    }
+    &__quote {
+      font-size: 0.9rem;
+      padding: 1rem 1rem 2rem;
+    }
+  }
+  .three__dots {
+    display: flex;
+    justify-content: space-between;
+    width: 60px;
+    margin: 2rem auto 3rem;
+    @include media($md) {
+      display: none;
+    }
+    .circle {
+      width: 10px;
+      height: 10px;
+      border: 1px solid $b-Red;
+      cursor: pointer;
+      @include trans;
+      border-radius: 50%;
+      &:hover {
+        background-color: $b-Red;
+      }
+    }
+  }
+}

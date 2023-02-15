@@ -50,3 +50,10 @@
 .footer__btn {
   text-transform: uppercase;
 }
+
+.testimonial__btn {
+  @extend %shadow;
+  @include media($md) {
+    margin-block: 4rem 5rem;
+  }
+}
