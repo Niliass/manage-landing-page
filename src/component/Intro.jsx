@@ -3,7 +3,7 @@ import React from "react";
 const Intro = () => {
   return (
     <div className="intro">
-      <div className="container">
+      <div className="container container-max-width">
         <img
           src="./images/illustration-intro.svg"
           alt="intro image"
@@ -23,6 +23,7 @@ const Intro = () => {
       <div className="intro__bg">
         <img src="./images/bg-tablet-pattern.svg" alt="intro background" />
       </div>
+      <img src="./images/bg-tablet-pattern.svg" className="intro__small__bg" />
     </div>
   );
 };

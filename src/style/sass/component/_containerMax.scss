@@ -1,0 +1,13 @@
+@use "../abstracts" as *;
+
+.container-max-width {
+  @include flex(center, center, column);
+  gap: 1.5rem;
+  max-width: 500px;
+  @include media($md) {
+    max-width: unset;
+  }
+  @include media($md) {
+    justify-content: space-between;
+  }
+}

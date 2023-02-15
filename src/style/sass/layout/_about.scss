@@ -1,0 +1,22 @@
+@use "../abstracts" as *;
+
+.about {
+  overflow: hidden;
+  margin-bottom: 5rem;
+  .container {
+    @include media($md) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+  .about__content {
+    display: grid;
+    gap: 2rem;
+    @include media($md) {
+      max-width: 50%;
+    }
+    @include media($lg) {
+      max-width: 40%;
+    }
+  }
+}

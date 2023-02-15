@@ -1,0 +1,114 @@
+@use "../abstracts" as *;
+
+footer {
+  background-color: $v-d-blue;
+  padding-block: 4rem;
+  %rev-flex {
+    @include flex(null, null, column-reverse);
+  }
+  .container {
+    @extend %rev-flex;
+    gap: 2rem;
+    @include media($lg) {
+      flex-direction: row;
+    }
+  }
+  .#{&}__head {
+    @extend %rev-flex;
+    gap: 3rem;
+    align-items: center;
+    @include media($lg) {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
+  .svgtext {
+    fill: $white;
+  }
+  .social {
+    &__media {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      width: 100%;
+      max-width: 300px;
+    }
+    &__link {
+      color: $white;
+      font-size: 2rem;
+      @include trans;
+      &:hover {
+        color: $b-Red;
+      }
+      @include media($lg) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .#{&}__nav {
+    @include flex(space-around, null, null);
+    gap: 2rem;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    @include media($lg) {
+      justify-content: space-between;
+      max-width: 300px;
+    }
+  }
+  .nav__link {
+    color: $v-pale-blue;
+    font-size: 0.9rem;
+    padding-block: 0.7rem;
+    display: block;
+    @include trans;
+    &:hover {
+      color: $b-Red;
+    }
+  }
+  .#{&}__form {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    @include media($lg) {
+      @include flex(space-between, null, column);
+      max-width: 315px;
+      margin: 0;
+    }
+    form {
+      display: flex;
+      gap: 0.5rem;
+    }
+    input[type="email"] {
+      flex: 1;
+      font: {
+        family: inherit;
+        weight: 500;
+      }
+      color: $d-blue;
+      background-color: $white;
+      padding: 0.8rem 1.5rem;
+      border: 1px solid transparent;
+      caret-color: $d-blue;
+      border-radius: 25px;
+      &::placeholder {
+        color: $d-grayish-blue;
+        @include trans;
+      }
+      &:focus::placeholder {
+        opacity: 0;
+      }
+    }
+  }
+  .rights {
+    color: $d-grayish-blue;
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 4rem;
+    @include media($lg) {
+      text-align: right;
+      margin: 0;
+    }
+  }
+}

@@ -6,7 +6,6 @@
   font-weight: 700;
   padding: 0.8rem 2rem;
   border-radius: 25px;
-  @include trans;
   &:hover {
     background-color: lighten($b-Red, 10%);
   }
@@ -31,4 +30,23 @@
   @include media($md) {
     margin: 0;
   }
+}
+
+.simplify__btn {
+  color: $b-Red;
+  font-weight: 700;
+  padding: 0.7rem 2rem;
+  background-color: $white;
+  margin-top: 1.5rem;
+  border-radius: 21px;
+  &:hover {
+    background-color: $v-pale-blue;
+    color: lighten($b-Red, 20%);
+  }
+  @include media($md) {
+    margin-top: 0;
+  }
+}
+.footer__btn {
+  text-transform: uppercase;
 }

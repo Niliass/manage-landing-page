@@ -2,7 +2,11 @@
 @use "./sass//base/typography";
 
 @use "./sass/component/buttons";
+@use "./sass/component/containerMax";
 
 @use "./sass/layout/container";
 @use "./sass/layout/header";
 @use "./sass/layout/intro";
+@use "./sass/layout/about";
+@use "./sass/layout/simplify";
+@use "./sass/layout/footer";
