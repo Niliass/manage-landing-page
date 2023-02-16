@@ -460,24 +460,54 @@ header .nav__links a:hover {
   text-align: center;
 }
 .testimonial__content {
-  overflow: hidden;
   padding-top: 5rem;
+  overflow: hidden;
 }
 @media (min-width: 768px) {
   .testimonial__content {
     padding-top: 7rem;
   }
 }
+.testimonial .slider__container {
+  display: flex;
+  position: relative;
+  width: 500vw;
+  transform: translateX(0);
+  transition: 0.25s;
+}
+@media (min-width: 768px) {
+  .testimonial .slider__container {
+    justify-content: center;
+  }
+}
+.testimonial .slider__container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.testimonial .slider__item {
+  display: grid;
+  place-items: center;
+  width: 97vw;
+  padding-inline: 20px;
+}
 .testimonial .box {
   display: grid;
   place-items: center;
   position: relative;
   gap: 1rem;
-  width: calc(100% - 40px);
-  max-width: 500px;
+  max-width: 460px;
   text-align: center;
   margin: auto;
   background-color: hsl(0deg, 0%, 98%);
+}
+@media (min-width: 768px) {
+  .testimonial .box {
+    min-width: 460px;
+  }
 }
 .testimonial .box__img {
   position: absolute;
@@ -512,7 +542,7 @@ header .nav__links a:hover {
   transition: 0.25s;
   border-radius: 50%;
 }
-.testimonial .three__dots .circle:hover {
+.testimonial .three__dots .circle:hover, .testimonial .three__dots .circle.active {
   background-color: hsl(12deg, 88%, 59%);
 }
 
