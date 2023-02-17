@@ -80,8 +80,31 @@ footer {
       display: flex;
       gap: 0.5rem;
     }
-    input[type="email"] {
+    .input__holder {
       flex: 1;
+      position: relative;
+      &::before {
+        content: "Please insert a valid email";
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 1.5rem;
+        color: $b-Red;
+        font-size: 0.8rem;
+        opacity: 0;
+        @include trans;
+      }
+      &.invalid::before {
+        opacity: 1;
+      }
+      &.invalid input {
+        border-color: $b-Red;
+        &::placeholder {
+          color: $b-Red;
+        }
+      }
+    }
+    input[type="email"] {
+      width: 100%;
       font: {
         family: inherit;
         weight: 500;

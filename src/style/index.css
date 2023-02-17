@@ -447,13 +447,31 @@ header .nav__links a:hover {
     max-width: 40%;
   }
 }
-.about__bg {
-  position: absolute;
-}
 
 .testimonial {
   display: grid;
   margin-bottom: 4rem;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .testimonial {
+    margin-top: 4rem;
+  }
+}
+.testimonial__bg {
+  display: none;
+  position: absolute;
+  top: -75%;
+  z-index: -1;
+  overflow: hidden;
+}
+.testimonial__bg__img {
+  transform: translateX(-55%);
+}
+@media (min-width: 992px) {
+  .testimonial__bg {
+    display: block;
+  }
 }
 .testimonial__title {
   font-size: 1.8rem;
@@ -462,6 +480,7 @@ header .nav__links a:hover {
 .testimonial__content {
   padding-top: 5rem;
   overflow: hidden;
+  position: relative;
 }
 @media (min-width: 768px) {
   .testimonial__content {
@@ -471,8 +490,8 @@ header .nav__links a:hover {
 .testimonial .slider__container {
   display: flex;
   position: relative;
-  width: 500vw;
-  transform: translateX(0);
+  width: 400vw;
+  transform: translateX(var(--slider));
   transition: 0.25s;
 }
 @media (min-width: 768px) {
@@ -485,14 +504,62 @@ header .nav__links a:hover {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
 }
 .testimonial .slider__item {
   display: grid;
   place-items: center;
-  width: 97vw;
+  width: 100vw;
   padding-inline: 20px;
+}
+.testimonial .slider__arrow {
+  display: none;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  height: 100%;
+  width: 70px;
+  font-size: 2rem;
+  color: hsl(12deg, 88%, 59%);
+  background: transparent;
+  transform: translateY(-50%);
+  transition: 0.25s;
+}
+@media (min-width: 768px) {
+  .testimonial .slider__arrow {
+    display: block;
+  }
+}
+.testimonial .slider__arrow::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: 0.25s;
+}
+.testimonial .slider__arrow:hover {
+  color: hsl(0deg, 0%, 100%);
+}
+.testimonial .slider__arrow:hover::before {
+  opacity: 1;
+}
+.testimonial .slider__arrow--left {
+  left: 0;
+}
+.testimonial .slider__arrow--left::before {
+  background: linear-gradient(-90deg, transparent, #f6866a);
+}
+.testimonial .slider__arrow--right {
+  right: 0;
+}
+.testimonial .slider__arrow--right::before {
+  background: linear-gradient(90deg, transparent, #f6866a);
 }
 .testimonial .box {
   display: grid;
@@ -506,7 +573,7 @@ header .nav__links a:hover {
 }
 @media (min-width: 768px) {
   .testimonial .box {
-    min-width: 460px;
+    min-width: 500px;
   }
 }
 .testimonial .box__img {
@@ -686,8 +753,34 @@ footer .footer__form form {
   display: flex;
   gap: 0.5rem;
 }
-footer .footer__form input[type=email] {
+footer .footer__form .input__holder {
   flex: 1;
+  position: relative;
+}
+footer .footer__form .input__holder::before {
+  content: "Please insert a valid email";
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 1.5rem;
+  color: hsl(12deg, 88%, 59%);
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: 0.25s;
+}
+footer .footer__form .input__holder.invalid::before {
+  opacity: 1;
+}
+footer .footer__form .input__holder.invalid input {
+  border-color: hsl(12deg, 88%, 59%);
+}
+footer .footer__form .input__holder.invalid input::-moz-placeholder {
+  color: hsl(12deg, 88%, 59%);
+}
+footer .footer__form .input__holder.invalid input::placeholder {
+  color: hsl(12deg, 88%, 59%);
+}
+footer .footer__form input[type=email] {
+  width: 100%;
   font-family: inherit;
   font-weight: 500;
   color: hsl(228deg, 39%, 23%);

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 const Footer = () => {
-  const [state, setState] = useState("");
+  const [inputVal, setInputVal] = useState("");
+  const [state, setState] = useState(true);
   const [size, setSize] = useState(false);
 
   useEffect(() => {
@@ -9,6 +10,13 @@ const Footer = () => {
       document.body.clientWidth > 992 ? setSize(true) : setSize(false);
     });
   }, []);
+
+  const handleInputVal = (e) => {
+    /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(inputVal)
+      ? setState(true)
+      : setState(false);
+    setInputVal(e.currentTarget.value);
+  };
   return (
     <footer>
       <div className="container">
@@ -96,11 +104,15 @@ const Footer = () => {
         </div>
         <div className="footer__form">
           <form action="">
-            <input
-              type="email"
-              id="mail"
-              placeholder="Updates in your inbox…"
-            />
+            <div className={`input__holder ${state ? "" : "invalid"}`}>
+              <input
+                type="email"
+                id="mail"
+                placeholder="Updates in your inbox…"
+                value={inputVal}
+                onChange={handleInputVal}
+              />
+            </div>
             <button type="submit" className="footer__btn primary__btn">
               Go
             </button>
