@@ -4,10 +4,11 @@ import Data from "../data-testimonial";
 const Testimonial = () => {
   const [data, setData] = useState(Data);
   const [translate, setTranslate] = useState(0);
-  const circles = [...document.querySelectorAll(".circle")];
+  let circles = [...document.querySelectorAll(".circle")];
   let sliderContainer = document.querySelector(".slider__container");
   useEffect(() => {
     sliderContainer = document.querySelector(".slider__container");
+    circles = [...document.querySelectorAll(".circle")];
   }, []);
 
   const activeCircle = (idx) => {

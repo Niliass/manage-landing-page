@@ -2,7 +2,7 @@
 
 .container-max-width {
   @include flex(center, center, column);
-  gap: 1.5rem;
+  gap: 3.5rem;
   max-width: 500px;
   @include media($md) {
     max-width: unset;

@@ -3,7 +3,9 @@ import React, { useState, useEffect } from "react";
 const Footer = () => {
   const [inputVal, setInputVal] = useState("");
   const [state, setState] = useState(true);
-  const [size, setSize] = useState(false);
+  const [size, setSize] = useState(
+    document.body.clientWidth > 992 ? true : false
+  );
 
   useEffect(() => {
     window.addEventListener("resize", () => {
